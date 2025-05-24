@@ -1,8 +1,4 @@
-from manim import Circle, Square, Scene, Create, Transform, FadeOut, config, RIGHT, TAU, PINK
-
-config.frame_rate = 60
-config.pixel_width = 3840
-config.pixel_height = 2160
+from manim import Circle, Square, Scene, Create, Transform, FadeOut, RIGHT, TAU, PINK
 
 class SquareToCircle(Scene):
     def construct(self):
