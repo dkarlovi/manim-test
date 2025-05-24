@@ -1,5 +1,6 @@
 from manim import Circle, Square, Scene, Create, Transform, FadeOut, RIGHT, TAU, PINK
 
+
 class SquareToCircle(Scene):
     def construct(self):
         circle = Circle()
