@@ -6,15 +6,17 @@ analyze: analyze/pyright
 test: test/pytest
 
 preview/%: %
-	poetry run manim render $< --renderer opengl --preview
-4k@60fps/%: %
-	poetry run manim render $< --resolution 3840,2160 --fps 60
-4k@30fps/%: %
-	poetry run manim render $< --resolution 3840,2160 --fps 30
-hd@60fps/%: %
-	poetry run manim render $< --resolution 1920,1080 --fps 60
-hd@30fps/%: %
-	poetry run manim render $< --resolution 1920,1080 --fps 30
+	poetry run manim render $</__init__.py --renderer opengl --preview
+debug/%: %
+	poetry run manim render $</__init__.py --renderer opengl --preview --enable_wireframe
+render/%/4k@60: %
+	poetry run manim render $</__init__.py --resolution 3840,2160 --fps 60
+render/%/4k@30: %
+	poetry run manim render $</__init__.py --resolution 3840,2160 --fps 30
+render/%/hd@60: %
+	poetry run manim render $</__init__.py --resolution 1920,1080 --fps 60
+render/%/hd@30: %
+	poetry run manim render $</__init__.py --resolution 1920,1080 --fps 30
 
 analyze/ruff-check:
 	poetry run ruff check
