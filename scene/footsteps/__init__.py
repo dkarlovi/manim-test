@@ -7,7 +7,7 @@ class Footsteps(Scene):
     def construct(self):
         text = Text("O", font_size=100, color="#000000", font="Sans")
         start_y = -config.frame_height / 2 + text.height / 2
-        end_y = config.frame_height / 2 - text.height / 2
+        end_y = (config.frame_height / 2 - text.height / 2) + text.height
         step_size = text.height
         step_width = text.width / 2
 
