@@ -1,4 +1,5 @@
-from manim import *
+from manim import Code, Write, Scene
+
 
 class CodeExample(Scene):
     def construct(self):

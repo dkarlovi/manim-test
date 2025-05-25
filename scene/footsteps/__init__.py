@@ -1,4 +1,4 @@
-from manim import *
+from manim import config, Scene, Text
 
 config.background_color = "#f0f0f0"  # Set a light background color
 
@@ -15,7 +15,7 @@ class Footsteps(Scene):
         footsteps = []
         offset = -1
         while y <= end_y:
-            t = text.copy().move_to([0 + offset * step_width, y, 0])
+            t = text.copy().move_to((offset * step_width, y, 0))
             footsteps.append(t)
             y += step_size
             offset = -offset
