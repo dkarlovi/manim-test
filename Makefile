@@ -16,7 +16,7 @@ render/%/4k@30: %
 render/%/hd@60: %
 	poetry run manim render $</__init__.py --resolution 1920,1080 --fps 60 --preview
 render/%/hd@30: %
-	poetry run manim render $</__init__.py --resolution 1920,1080 --fps 30--preview
+	poetry run manim render $</__init__.py --resolution 1920,1080 --fps 30 --preview
 
 analyze/ruff-check:
 	poetry run ruff check
