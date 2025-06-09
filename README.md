@@ -5,7 +5,7 @@ Run:
 ```
 git clone git@github.com:dkarlovi/manim-test.git
 cd manim-test
-poetry install
+poetry install # good luck
 make preview
 make dist
 ```
