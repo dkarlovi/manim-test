@@ -9,3 +9,5 @@ poetry install
 make preview
 make dist
 ```
+
+Tested on Fedora native and Fedora in WSL on Windows 11.
