@@ -5,6 +5,11 @@ cs: analyze/ruff-format
 analyze: analyze/pyright
 test: test/pytest
 
+render:
+	@for d in scene/*/ ; do \
+		$(MAKE) render/$$d/hd@30 ; \
+	done
+
 preview/%: %
 	poetry run manim render $</__init__.py --renderer opengl --preview
 debug/%: %
