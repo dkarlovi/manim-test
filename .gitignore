@@ -1,2 +1,4 @@
 /media/
 /.venv/
+*.pyc
+__pycache__/
