@@ -15,6 +15,7 @@ from manim import (
 
 class Sequence(Scene):
     def construct(self):
+        self.next_section("AnimationGroup, lag_ratio=1.0")
         self.play(self._title("AnimationGroup, lag_ratio=1.0"))
         self.wait(1)
         anim_up = self._circle(UP, duration=1)
@@ -24,6 +25,7 @@ class Sequence(Scene):
         self.wait(1)
         self.clear()
 
+        self.next_section("AnimationGroup, lag_ratio=0.0")
         self.play(self._title("AnimationGroup, lag_ratio=0.0"))
         self.wait(1)
         anim_up = self._circle(UP, duration=1)
@@ -33,6 +35,7 @@ class Sequence(Scene):
         self.wait(1)
         self.clear()
 
+        self.next_section("Just play() calls")
         self.play(self._title("Just play() calls"))
         self.wait(1)
         anim_up = self._circle(UP, duration=1)
@@ -44,6 +47,7 @@ class Sequence(Scene):
         self.wait(1)
         self.clear()
 
+        self.next_section()
         self.wait(2)
 
     @staticmethod
