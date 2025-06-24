@@ -34,6 +34,8 @@ render/%/hd@30: %
 
 analyze/ruff-check:
 	poetry run ruff check
+analyze/ruff-check-fix:
+	poetry run ruff check --fix
 analyze/ruff-format:
 	poetry run ruff format
 
