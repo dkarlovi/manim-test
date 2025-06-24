@@ -20,9 +20,9 @@ render:
 	done
 
 preview/%: %
-	poetry run manim render $</__init__.py --renderer opengl $(PREVIEW_FLAG)
+	poetry run manim render $</__init__.py --renderer opengl --preview
 debug/%: %
-	poetry run manim render $</__init__.py --renderer opengl $(PREVIEW_FLAG) --enable_wireframe
+	poetry run manim render $</__init__.py --renderer opengl --preview --enable_wireframe
 render/%/4k@60: %
 	poetry run manim render $</__init__.py --resolution 3840,2160 --fps 60 $(PREVIEW_FLAG)
 render/%/4k@30: %
