@@ -1,4 +1,4 @@
-from manim import Scene, Text, Write, Circle, LEFT, RIGHT, UP, DOWN, rate_functions, AnimationGroup, Succession
+from manim import Scene, Text, Write, Circle, LEFT, RIGHT, UP, DOWN, rate_functions, AnimationGroup, Succession, VGroup
 
 class Sequence(Scene):
     def construct(self):
@@ -48,8 +48,16 @@ class Sequence(Scene):
     
     @staticmethod
     def _circle(pos, duration):
-        circle = Circle(radius=1, color="#FF0000", fill_color="#FF0000", fill_opacity=0.5)
+        # Adjust color by subtracting duration from each RGB channel, clamp to 0
+        base_rgb = (255, 0, 0)
+        adjusted_rgb = tuple(max(0, int(c - duration * 100)) for c in base_rgb)
+        color_hex = '#{:02X}{:02X}{:02X}'.format(*adjusted_rgb)
+
+        circle = Circle(radius=1, color=color_hex, fill_color=color_hex, fill_opacity=0.5)
         circle.move_to(LEFT + pos * 2)
-        anim = circle.animate(rate_func=rate_functions.ease_out_bounce, run_time=duration).move_to(RIGHT + pos * 2)
+        duration_text = Text(f"{duration}s", font_size=32, color="#FFFFFF")
+        duration_text.move_to(circle.get_center())
+        group = VGroup(circle, duration_text)
+        anim = group.animate(rate_func=rate_functions.ease_out_bounce, run_time=duration).move_to(RIGHT + pos * 2)
         
         return anim
