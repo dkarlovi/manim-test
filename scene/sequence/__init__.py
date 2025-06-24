@@ -1,4 +1,4 @@
-from manim import Scene, Text, Write, Circle, LEFT, RIGHT, UP, DOWN, rate_functions, AnimationGroup, Succession, VGroup
+from manim import Scene, Text, Write, Circle, LEFT, RIGHT, UP, DOWN, rate_functions, AnimationGroup, Succession, VGroup, Create
 
 class Sequence(Scene):
     def construct(self):
@@ -24,14 +24,14 @@ class Sequence(Scene):
         self.wait(1)
         self.clear()
 
-        self.play(self._title("Succession"))
+        self.play(self._title("Just play() calls"))
         self.wait(1)
         anim_up = self._circle(UP, duration=1)
+        self.play(anim_up)
         anim_center = self._circle(0, duration=0.5)
-        anim_down = self._circle(DOWN, duration=2)
-        self.play(
-            Succession(anim_up, anim_center, anim_down)
-        )
+        self.play(anim_center)
+        anim_down = self._circle(DOWN, duration=2)        
+        self.play(anim_down)
         self.wait(1)
         self.clear()
 
