@@ -7,6 +7,7 @@ class CodeTransform(Scene):
     def construct(self):
         code = self._code("seq1.js")
         self.play(Write(code))
+        self.wait(2)
 
         # TODO: read the files from a directory instead of hardcoding them
         files = ["seq2.js", "seq3.js", "seq4.js"]
